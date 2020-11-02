@@ -26,20 +26,20 @@ def apply_coupons(cart, coupons)
   # REMEMBER: This method **should** update cart
   
 index = 0
-new_cart = consolidate_cart(cart)
+cart_with_coupons = consolidate_cart(cart)
 
   while index < coupons.count do
       coupon = coupons[index]
-      item_with_coupon = find_item_by_name_in_collection(coupon[:item], new_cart)
+      item_with_coupon = find_item_by_name_in_collection(coupon[:item], cart_with_coupons)
       if item_with_coupon != nil && item_with_coupon[:count] >= coupon[:num]
         coupon_count = (item_with_coupon[:count] / coupon[:num]).round_down
         item_with_coupon[:count] = coupon_count
         
-        new_cart << item_with_coupon
+        cart_with_coupons << item_with_coupon
       end  
     index += 1
   end
-  new_cart 
+  cart_with_coupons 
  
 end
 
