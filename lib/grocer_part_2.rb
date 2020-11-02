@@ -3,13 +3,19 @@ require_relative './part_1_solution.rb'
 
 =begin
 
-coupons = 
-[
-  {:item => "AVOCADO", :num => 2, :cost => 5.00},
-  {:item => "BEER", :num => 2, :cost => 20.00},
-  {:item => "CHEESE", :num => 3, :cost => 15.00}
+cart = 	[
+	{"AVOCADO" => {:price => 3.00, :clearance => true}},
+	{"KALE" => {:price => 3.00, :clearance => false}},
+	{"AVOCADO" => {:price => 3.00, :clearance => true}},
+	{"AVOCADO" => {:price => 3.00, :clearance => true}},
+	{"BEETS" => {:price => 2.50, :clearance => false}}
 ]
-
+	
+coupons = [
+	{:item => "AVOCADO", :num => 2, :cost => 5.00},
+	{:item => "BEER", :num => 2, :cost => 20.00},
+	{:item => "CHEESE", :num => 3, :cost => 15.00}
+]
 
 =end
 
@@ -19,20 +25,6 @@ def apply_coupons(cart, coupons)
   #
   # REMEMBER: This method **should** update cart
   
-  cart = 	[
-		{"AVOCADO" => {:price => 3.00, :clearance => true}},
-		{"KALE" => {:price => 3.00, :clearance => false}},
-		{"AVOCADO" => {:price => 3.00, :clearance => true}},
-		{"AVOCADO" => {:price => 3.00, :clearance => true}},
-		{"BEETS" => {:price => 2.50, :clearance => false}}
-	]
-	
-	coupons = [
-		{:item => "AVOCADO", :num => 2, :cost => 5.00},
-		{:item => "BEER", :num => 2, :cost => 20.00},
-		{:item => "CHEESE", :num => 3, :cost => 15.00}
-	]
-	
 index = 0
 new_cart = consolidate_cart(cart)
 
