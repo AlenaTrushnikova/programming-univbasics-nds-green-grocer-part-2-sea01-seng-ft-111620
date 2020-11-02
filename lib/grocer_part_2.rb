@@ -34,6 +34,7 @@ cart_with_coupons = consolidate_cart(cart)
       if item_with_coupon != nil && item_with_coupon[:count] >= coupon[:num]
         coupon_count = (item_with_coupon[:count] / coupon[:num]).round_down
         item_with_coupon[:count] = coupon_count
+        binding.pry
         
         cart_with_coupons << item_with_coupon
       end  
