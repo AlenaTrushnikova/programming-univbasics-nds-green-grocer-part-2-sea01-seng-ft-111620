@@ -28,7 +28,6 @@ def apply_coupons(cart, coupons)
 index = 0
 new_cart = consolidate_cart(cart)
 
-
   while index < coupons.count do
       coupon = coupons[index]
       item_with_coupon = find_item_by_name_in_collection(coupon[:item], new_cart)
