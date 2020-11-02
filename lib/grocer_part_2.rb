@@ -35,7 +35,7 @@ index = 0
               }
       item_with_coupon[:count] -= coupon[:num]
     end
-    i += 1
+    index += 1
   end
   cart
  
