@@ -47,10 +47,10 @@ end
 def apply_clearance(cart)
   cart.map do |item|
     if item[:clearance]
-      item[:price] *= 0.8
+      (item[:price] *= 0.8).round(2)
       binding.pry
     end
-    item.round(2)
+    item
   end
 end
 
