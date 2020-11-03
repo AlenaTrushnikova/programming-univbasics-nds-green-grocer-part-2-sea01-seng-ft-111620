@@ -46,9 +46,10 @@ end
 
 def apply_clearance(cart)
   cart.map do |sku|
-    if sku[:clearance]
+    if sku[:clearance] = true
       sku[:price] *= 0.8
-  end
+    end
+    
   sku
 end
 
