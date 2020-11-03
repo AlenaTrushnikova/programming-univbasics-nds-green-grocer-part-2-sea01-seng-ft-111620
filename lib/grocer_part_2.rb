@@ -45,11 +45,11 @@ end
 # Returns: a new Array where every unique item in the original is present but with its price reduced by 20% if its :clearance value is true
 
 def apply_clearance(cart)
-  cart.map do |sku|
-    if sku[:clearance]
-      sku[:price] *= 0.8
+  cart.map do |item|
+    if item[:clearance]
+      item[:price] *= 0.8
     end
-    sku
+    item.round(2)
   end
 end
 
