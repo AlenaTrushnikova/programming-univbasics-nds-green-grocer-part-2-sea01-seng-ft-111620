@@ -26,8 +26,8 @@ def apply_coupons(cart, coupons)
 index = 0
   coupons.each do |coupon|
     item_with_coupon = find_item_by_name_in_collection(coupon[:item], cart)
-    coupon_applied = item_with_coupon != nil && item_with_coupon[:count] >= coupon[:num]
-    if item_with_coupon != nil and coupon_applied
+    coupon_applies = item_with_coupon != nil && item_with_coupon[:count] >= coupon[:num]
+    if item_with_coupon != nil and coupon_applies
       cart << { item: "#{item_with_coupon[:item]} W/COUPON", 
                 price: coupon[:cost] / coupon[:num], 
                 clearance: item_with_coupon[:clearance],
@@ -42,6 +42,8 @@ end
 
 
 # REMEMBER: This method **should** update cart
+# Returns: a new Array where every unique item in the original is present but with its price reduced by 20% if its :clearance value is true
+
 def apply_clearance(cart)
   
   
