@@ -45,7 +45,7 @@ end
 # Returns: a new Array where every unique item in the original is present but with its price reduced by 20% if its :clearance value is true
 
 def apply_clearance(cart)
-  
+  cart.map do ||
   
   
 end
