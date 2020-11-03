@@ -58,20 +58,21 @@ end
   # * consolidate_cart
   # * apply_coupons
   # * apply_clearance
-  #
+  # If, after the coupons and discounts are applied, the cart's total is over $100, the customer gets an additional 10% off
   # BEFORE it begins the work of calculating the total (or else you might have some irritated customers)
   # Returns: Float: a total of the cart
+  
   
 def checkout(cart, coupons)
   final_cart = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
   total_sum = 0
 
   final_cart.each do |item|
-    total += item[:price] * item[:count]
+    total_sum += item[:price] * item[:count]
   end
-
-  total_sum *= 0.9 if total > 100
-
-  total.round(2)
-  
+  if total_sum > 100
+    total_sum *= 0.9
+  else total_sum.round(2)
+  end
+  total_sum
 end
