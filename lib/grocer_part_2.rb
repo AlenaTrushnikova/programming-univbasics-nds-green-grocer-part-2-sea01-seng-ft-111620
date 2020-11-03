@@ -46,7 +46,8 @@ end
 
 def apply_clearance(cart)
   cart.map do |sku|
-  
+    if sku[:clearance] = true
+      
   end
   
   
